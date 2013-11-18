@@ -1,3 +1,0 @@
-[submodule "pipework"]
-	path = pipework
-	url = git@github.com:jpetazzo/pipework.git
