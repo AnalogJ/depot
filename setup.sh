@@ -42,7 +42,7 @@ DELUGE_BRIDGE_IP=192.168.1.1
 PLEX_BRIDGE_IP=192.168.1.2
 SICKBEARD_BRIDGE_IP=192.168.1.3
 COUCHPOTATO_BRIDGE_IP=192.168.1.4
-MEDIAFRONTPAGE_BRIDGE_IP = 192.168.1.5
+MEDIAFRONTPAGE_BRIDGE_IP=192.168.1.5
 
 
 ###############################################################################
@@ -62,11 +62,11 @@ sudo docker build -rm -t sickbeard github.com/AnalogJ/docker-sickbeard
 # note: the order is important, as some contianers depend on other containers.
 
 DELUGE=$(docker run -p 54323:54323 -i -t deluge)
-
+echo "finished running deluge: $DELUGE"
 SICKBEARD=$(docker run -p 54322:54322 -i -t sickbeard)
-
+echo "finished running sickbeard: $SICKBEARD"
 ###############################################################################
 #setup pipework to allow inter-container communication
-pipework/pipework br1 $DELUGE $DELUGE_BRIDGE_IP/24
-pipework/pipework br2 $SICKBEARD $SICKBEARD_BRIDGE_IP/24
+pipework/pipework.sh br1 $DELUGE $DELUGE_BRIDGE_IP/24
+pipework/pipework.sh br2 $SICKBEARD $SICKBEARD_BRIDGE_IP/24
 
