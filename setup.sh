@@ -61,12 +61,13 @@ sudo docker build -rm -t sickbeard github.com/AnalogJ/docker-sickbeard
 #run the docker containers
 # note: the order is important, as some contianers depend on other containers.
 
-DELUGE=$(docker run -p 54323:54323 -i -t deluge)
+DELUGE=$(sudo docker run -p 54323:54323 -d -t deluge)
 echo "finished running deluge: $DELUGE"
-SICKBEARD=$(docker run -p 54322:54322 -i -t sickbeard)
+SICKBEARD=$(sudo docker run -p 54322:54322 -d -t sickbeard)
 echo "finished running sickbeard: $SICKBEARD"
 ###############################################################################
 #setup pipework to allow inter-container communication
-pipework/pipework.sh br1 $DELUGE $DELUGE_BRIDGE_IP/24
-pipework/pipework.sh br2 $SICKBEARD $SICKBEARD_BRIDGE_IP/24
+sudo bash pipework/pipework.sh br1 $DELUGE $DELUGE_BRIDGE_IP/24
+echo "bridged deluge"
+sudo bash pipework/pipework.sh br2 $SICKBEARD $SICKBEARD_BRIDGE_IP/24
 
