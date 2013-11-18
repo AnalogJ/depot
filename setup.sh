@@ -47,15 +47,15 @@ MEDIAFRONTPAGE_BRIDGE_IP = 192.168.1.5
 
 ###############################################################################
 #build the docker containers
-sudo docker build -rm -t deluge:deluge github.com/AnalogJ/docker-deluge
+sudo docker build -rm -t deluge github.com/AnalogJ/docker-deluge
 
-#sudo docker build -rm -t plex:plex github.com/AnalogJ/docker-plex
+#sudo docker build -rm -t plexx github.com/AnalogJ/docker-plex
 
-sudo docker build -rm -t sickbeard:sickbeard github.com/AnalogJ/docker-sickbeard
+sudo docker build -rm -t sickbeard github.com/AnalogJ/docker-sickbeard
 
-#sudo docker build -rm -t couchpotato:couchpotato github.com/AnalogJ/docker-couchpotato
+#sudo docker build -rm -t couchpotato github.com/AnalogJ/docker-couchpotato
 
-#sudo docker build -rm -t mediafrontpage:mediafrontpage github.com/AnalogJ/docker-mediafrontpage
+#sudo docker build -rm -t mediafrontpage github.com/AnalogJ/docker-mediafrontpage
 
 ###############################################################################
 #run the docker containers
